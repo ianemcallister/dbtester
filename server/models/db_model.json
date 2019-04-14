@@ -1,0 +1,45 @@
+{
+    "channels": {
+        "9fe3a9ee-2de0-4725-9fed-925d21cd4a0f": {
+            "title": "Beaverton Farmers Market"
+        }
+    },
+    "seasons": {
+        "0400a363-8eba-4e2b-94b1-e26685771f08": {
+            "title": "Winter 2019"
+        }
+    },
+    "locations": {
+        "3d58fcaf-f2b0-4cda-bcd6-04153e63f7ce": {
+            "city": "Beaverton"
+        }
+    },
+    "kits": {
+        "f258e84a-a900-47de-9911-96a77b1081eb": {
+            "title": 1
+        }
+    },
+    "popups": {
+        "651c00c3-6707-47ec-aba0-43285ca619c6" : {
+            "location_id": "3d58fcaf-f2b0-4cda-bcd6-04153e63f7ce",
+            "kit_id": "f258e84a-a900-47de-9911-96a77b1081eb",
+            "season_id": "0400a363-8eba-4e2b-94b1-e26685771f08",
+            "channel_id": "9fe3a9ee-2de0-4725-9fed-925d21cd4a0f",
+            "start": "1555174800",
+            "end": "1555187400"
+        }
+    },
+    "shifts": {
+        "7d2a1e82-a30f-4902-bbb1-f49133ab72e9": {
+            "popup_id": "651c00c3-6707-47ec-aba0-43285ca619c6",
+            "employee_id": "80a5c312-affc-4a2b-b633-a2bfa2248acd",
+            "start": "1555166700",
+            "end": "1555191000"
+        }
+    },
+    "employees": {
+        "80a5c312-affc-4a2b-b633-a2bfa2248acd": {
+            "first_name": "Ian"
+        }
+    }
+}

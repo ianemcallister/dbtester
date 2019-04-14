@@ -1,3 +1,3 @@
 # DB Tester
 
-This is an excercise for myself to play with a database
+This is an excercise for me to play with a database
