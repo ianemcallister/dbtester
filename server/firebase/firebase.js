@@ -29,19 +29,25 @@ admin.initializeApp({
 
 //  DEFINE MODULE
 var firebase = {
-    read: read,
+	readOnce: readOnce,
+	readOn: readOn,
+	readcomplex: readcomplex,
 	set: set,
+	//update: update,
+	push: push,
 	test: test
 };
 
+function readcomplex(path) {};
+
 /*
-*	READ
+*	READ ONCE
 *	
 *	This function function collects data from firebase
 */
-function read(path) {
+function readOnce(path) {
     
-    console.log('reading path', path);
+    console.log('reading path once:', path);
 	
 	//define local variable
 	var ref = admin.database().ref(path);
@@ -65,6 +71,31 @@ function read(path) {
 };
 
 /*
+*	READ ON
+*	
+*	This function function collects data from firebase
+*/
+function readOn(path, child, equalTo) {
+
+	//	NOTIFYING PROGRESS
+    console.log('reading path on:', path, child, equalTo);
+	
+	//define local variable
+	var ref = admin.database().ref(path);
+
+	//return async work
+	return new Promise(function(resolve, reject) {
+
+		//hit the database
+		ref.orderByChild(child).equalTo(equalTo).on("value", function success(snapshot) {
+			resolve(snapshot.val());
+		});
+
+	});
+	
+};
+
+/*
 *	Set
 *	
 *	This function saves data to the database
@@ -78,6 +109,27 @@ function set(path, data) {
 	var ref = admin.database().ref(path);
 
 	ref.set(data);
+};
+
+/*
+*	PUSH
+*
+*	This function pushes new data on to the model and returns a unique key
+*/
+function push(path, object) {
+	//	DEFINE LOCAL VARAIABLES
+	var ref = admin.database().ref(path);
+
+	//	RETURN ASYNC WORK
+	return new Promise(function(resolve, reject) {
+
+		//	DEFINE LOCA VARIABLES
+		var newChannelRef = ref.push(object);
+		var channelId = newChannelRef.key;
+
+		resolve(channelId);
+	});
+
 };
 
 function test() {
